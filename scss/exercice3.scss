@@ -1,0 +1,54 @@
+//EXERCICE 3
+
+$color1: #334455;
+$color2: #666;
+$secondary_color2: #999999;
+$breakpoint: 64em;
+
+@mixin textcustom($font, $pad) {
+  font-size: $font;
+  padding: $pad;
+}
+
+.fooBar {
+  @include textcustom(16px, 32px);
+  border: red solid 1px;
+  .big {
+    @include textcustom(32px, 64px);
+  }
+}
+
+@mixin column($width, $color, $bg) {
+  width: $width;
+  background: $bg;
+  color: $color;
+}
+
+.hello-world {
+  .col1 {
+    @include column(50%, $color2, $color1);
+    @media (max-width: $breakpoint) {
+      width: 75%;
+      background-color: $secondary_color2;
+    }
+    z-index: 37;
+    position: static;
+  }
+  .col2 {
+    @include column(50%, $color1, $color2);
+
+    @media (max-width: $breakpoint) {
+      width: 25%;
+    }
+  }
+}
+
+.lorem-ipsum {
+  padding: 0 2em;
+}
+
+.lorem-dolor {
+  &::before {
+    color: lighten($color2, 20%);
+  }
+}

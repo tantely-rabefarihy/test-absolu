@@ -1,0 +1,67 @@
+// EXERCICE 2
+
+$grey: rgb(247, 245, 245);
+$dark_grey: rgb(112, 112, 112);
+$blue: rgb(45, 65, 241);
+
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  color: $dark_grey;
+  text-transform: uppercase;
+  &::first-letter {
+    color: $blue;
+  }
+  &::after {
+    content: " ⭐️ ";
+    float: left;
+  }
+}
+
+ul {
+  padding: 1rem;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  background-color: $grey;
+  width: 400px;
+  :nth-child(-n + 4) {
+    list-style-type: none;
+  }
+
+  :nth-child(-n + 4)::before {
+    content: "\2022 ";
+    position: absolute;
+    margin-left: -10px;
+    color: red;
+  }
+
+  :nth-child(2)::before {
+    content: "\2022 ";
+    color: red;
+    opacity: 0.3;
+  }
+
+  :nth-child(4) {
+    color: rgb(71, 167, 7);
+  }
+  :nth-child(n + 5)::before {
+    content: "-";
+    position: absolute;
+    margin-left: -10px;
+  }
+  :nth-child(n + 5) {
+    list-style-type: none;
+  }
+
+  &::after {
+    content: url("../images/code.png");
+    position: absolute;
+    left: 400px;
+    top: 50px;
+  }
+}
+
+/////@extend
